@@ -34,11 +34,12 @@ with open('data.csv', 'r') as file:
 df = pandas.read_csv('data.csv', sep=';')
 half = int(len(df) / 2)
 
+
 def get_layout(begin: int, end: int):
     for index, row in df.iloc[begin:end].iterrows():
         st.subheader(row['title'])
         st.write(row['description'])
-        st.write(row['url'])
+        st.write(f'[Source code]({row["url"]})')
         st.image(f'images/{row["image"]}')
         st.divider()
 
